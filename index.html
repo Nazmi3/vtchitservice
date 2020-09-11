@@ -1,1 +1,69 @@
-<h1>This is VTCH IT SERVICE Company Page</h1>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body style="">
+        <div style="height:100%;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+            <h1 style="font-size: 2.5vw;">WELCOME</h1>
+            <h1 style="font-size: 5vw;margin:0px">VTCH IT SERVICE</h1>
+            <h1 style="font-size: 1.25vw;">We are experts in mobile app & website development</h1>
+            <div style="margin:2vw;width: 100%;position: relative;height: 10vw;">
+                <div id="page1" class="inner-page">
+                    <button id="button1" class="button" style="font-size: 2vw;display: block;" onclick="hide('button1', show('page2'));">Contact Us</button>
+                </div>
+                <div id="page2" class="inner-page" style="opacity: 0;display: none;">
+                    <button id="button2" class="button" style="font-size: 2vw;margin:3vw;width:24vw">Email: <a href="mailto: nazmiryuki@gmail.com">nazmiryuki@gmail.com</a></button>
+                    <button id="button2" class="button" style="font-size: 2vw;margin:3vw;width:24vw">Mobile: 01128585855</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("#button1").click(function(){
+               
+            });
+        });
+        function hide(id, f) {
+            $('#' + id).animate({
+                opacity:0
+            }, 500, function () {
+                $('#' + id).css('display', 'none');
+                f();
+            });
+        }
+        function show(id) {
+            $('#' + id).css('display', 'flex');
+            $('#' + id).animate({
+                opacity:1
+            }, 2000, function () {
+            });
+        }
+    </script>
+    <style>
+        .inner-page {
+            position:absolute;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        .button {
+            border-color: black;
+            background-color: white;
+            border-radius: 1vw;
+            padding: 1vw;
+            animation-name: anim1;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+
+        .button:hover {
+            background-color: rgb(199, 198, 198);
+        }
+
+        @keyframes anim1 {
+            from {scale: 1.0;}
+            to {scale: 1.2;}
+        }
+    </style>
+</html>
