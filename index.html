@@ -5,31 +5,73 @@
     <body style="">
         <div style="height:100%;display: flex;align-items: center;justify-content: center;flex-direction: column;">
             <h1 style="font-size: 2.5vw;">WELCOME</h1>
-            <h1 style="font-size: 5vw;margin:0px">VTCH IT SERVICE</h1>
+            <h1 id="title" style="font-size: 5vw;margin:0px" onclick="hideMulti('page2,page3,page4,page5,page6,page7,page8,page9', show('page1'))" style="cursor: pointer;">VTCH IT SERVICE</h1>
             <h1 style="font-size: 1.25vw;">We are experts in mobile app & website development</h1>
             <div style="margin:2vw;width: 100%;position: relative;height: 10vw;">
-                <div id="page1" class="inner-page">
-                    <button id="button1" class="button" style="font-size: 2vw;display: block;" onclick="hide('button1', show('page2'));">Contact Us</button>
+                <div id="page1" class="inner-page" style="display: flex;">
+                    <button id="button3" class="button" style="font-size: 2vw;display: block;" onclick="hide('page1', show('page3'))">Get Instant Price</button>
+                    <button id="button1" class="button" style="font-size: 2vw;display: block;" onclick="hide('page1', show('page2'));">Contact Us</button>
                 </div>
                 <div id="page2" class="inner-page" style="opacity: 0;display: none;">
-                    <button id="button2" class="button" style="font-size: 2vw;margin:3vw;width:24vw">Email: <a href="mailto: nazmiryuki@gmail.com">nazmiryuki@gmail.com</a></button>
-                    <button id="button2" class="button" style="font-size: 2vw;margin:3vw;width:24vw">Mobile: 01128585855</button>
+                    <button id="button2" class="button">Email: <a href="mailto: nazmiryuki@gmail.com">nazmiryuki@gmail.com</a></button>
+                    <button id="button2" class="button">Mobile: 01128585855</button>
+                </div>
+                <div id="page3" class="inner-page" style="opacity: 0;display: none;flex-direction: column;">
+                    <h1 style="margin:0.25vw;text-align: center;">What package you want?</h1>
+                    <div style="display: flex">
+                        <button id="button2" class="button" onclick="hide('page3', show('page4'))">Website Only</button>
+                        <button id="button2" class="button" onclick="hide('page3', show('page7'))">Mobile App Only</button>
+                    </div>
+                </div>
+                <div id="page4" class="inner-page" style="opacity: 0;display: none;flex-direction: column;">
+                    <div style="display: flex">
+                        <button id="button2" class="button" onclick="hide('page4', show('page5'))">Have Storage</button>
+                        <button id="button2" class="button" onclick="hide('page4', show('page6'))">No Storage</button>
+                    </div>
+                </div>
+                <div id="page5" class="inner-page" style="opacity: 0;display: none;flex-direction: column;">
+                    <div style="display: flex">
+                        <button id="button2" class="button" style="background-color: #55efc4;">RM 4999 Only</button>
+                    </div>
+                </div>
+                <div id="page6" class="inner-page" style="opacity: 0;display: none;flex-direction: column;">
+                    <div style="display: flex">
+                        <button id="button2" class="button" style="background-color: #55efc4;">RM 999 Only</button>
+                    </div>
+                </div>
+                <div id="page7" class="inner-page" style="opacity: 0;display: none;flex-direction: column;">
+                    <div style="display: flex">
+                        <button id="button2" class="button" onclick="hide('page7', show('page8'))">No Data Manipulation</button>
+                        <button id="button2" class="button" onclick="hide('page7', show('page9'))">Have Data Manipulation</button>
+                    </div>
+                </div>
+                <div id="page8" class="inner-page" style="opacity: 0;display: none;flex-direction: column;">
+                    <div style="display: flex">
+                        <button id="button2" class="button" style="background-color: #55efc4;">RM 14999 Only</button>
+                    </div>
+                </div>
+                <div id="page9" class="inner-page" style="opacity: 0;display: none;flex-direction: column;">
+                    <div style="display: flex">
+                        <button id="button2" class="button" style="background-color: #55efc4;">RM 35999 Only</button>
+                    </div>
                 </div>
             </div>
         </div>
     </body>
     <script>
         $(document).ready(function(){
-            $("#button1").click(function(){
-               
-            });
         });
+        function hideMulti (ids, f) {
+            for (var id of ids.split(',')) {
+                hide(id, f);
+            }
+        }
         function hide(id, f) {
             $('#' + id).animate({
                 opacity:0
             }, 500, function () {
                 $('#' + id).css('display', 'none');
-                f();
+                f;
             });
         }
         function show(id) {
@@ -41,12 +83,19 @@
         }
     </script>
     <style>
+        #title:hover {
+            color: rgb(199, 198, 198);
+            cursor: pointer;
+        }
         .inner-page {
             position:absolute;
             left:50%;
             transform: translateX(-50%);
         }
         .button {
+            font-size: 2vw;
+            margin:3vw;
+            width:24vw;
             border-color: black;
             background-color: white;
             border-radius: 1vw;
@@ -59,6 +108,7 @@
 
         .button:hover {
             background-color: rgb(199, 198, 198);
+            cursor: pointer;
         }
 
         @keyframes anim1 {
